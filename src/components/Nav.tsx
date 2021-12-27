@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import {Link} from 'react-router-dom';
 const NavWrapper = styled.nav`
@@ -29,5 +30,5 @@ const Nav = () => {
       </ul>
     </NavWrapper>
  )
-}
+} 
 export default Nav
