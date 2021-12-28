@@ -38,6 +38,16 @@ body {
   height: 1em;
 }
 
+:focus {
+  outline: none;
+}
+
 button {
   font-family: inherit;
+}
+
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
 }

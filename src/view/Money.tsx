@@ -1,43 +1,18 @@
 import React from 'react';
 import Layout from 'components/Layout';
 import styled  from 'styled-components';
+import TagsSection from './Money/TagsSection';
+import NotesSection from './Money/NotesSection';
+import CategorySection from './Money/CategorySection';
+import NumberSection from './Money/NumberSection';
 
-const TagsSection = styled.section`
-background-color: #ffffff;
-padding: 12px 16px;
->ol{
-   margin:0 -12px;
-    >li{
-      background: #eee;
-      border-radius:10px;
-      display: inline-block;
-      padding: 3px 16px;
-      font-size: 14px;
-      margin: 8px 12px;
-   }
-}
-button{
-  margin-top: 10px;
-  background: none;
-  border:none ;
-  padding: 0 4px;
-  border-bottom: 1px solid #333;
-  color: #666;
-}
+const MyLayout = styled(Layout)`
+display: flex;
+flex-direction: column;
 `;
-const NotesSection = styled.section`
-
-`;
-const CategorySection = styled.section`
-
-`;
-const NumberSection = styled.section`
-
-`;
-
 function Money() {
   return (
-    <Layout>
+    <MyLayout>
       <TagsSection>
         <ol>
           <li>衣</li>
@@ -50,22 +25,20 @@ function Money() {
     <NotesSection>
         <label>
           <span>备注</span>
-          <input type="text" />
+          <input type="text"  placeholder='在这里添加备注'/>
         </label>
-      </NotesSection>
-      
+      </NotesSection> 
     <CategorySection>
         <ul>
-          <li>支出</li>
+          <li className='selected'>支出</li>
           <li>收入</li>
         </ul>
-    </CategorySection>
-    
+    </CategorySection>  
     <NumberSection>
-        <div>
+        <div className='output'>
           100
         </div>  
-        <div>
+        <div className='pad clearfix'>
           <button> 1</button>
           <button> 2</button>
           <button> 3</button>
@@ -77,13 +50,12 @@ function Money() {
           <button> 7</button>
           <button> 8</button>
           <button> 9</button>
-           <button>OK</button>
-          <button> 0</button>
+           <button className='ok'>OK</button>
+          <button className='zero'> 0</button>
           <button> .</button>
         </div>
     </NumberSection>
-
-</Layout>
+</MyLayout>
   );
 }
 export default Money

@@ -1,7 +1,6 @@
 import React, { Children } from 'react';
 import styled from 'styled-components';
 import Nav from 'components/Nav';
-import { type } from 'os';
 const Wrapper = styled.div`
    min-height: 100vh;
    display: flex;
@@ -18,7 +17,7 @@ const Layout = (props:any) => {
  return (
     < div>
      <Wrapper> 
-        <Main>
+          <Main className={ props.className}>
          { props.children}
         </Main>
         <Nav /> 
