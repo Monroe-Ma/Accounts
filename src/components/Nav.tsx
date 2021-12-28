@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import Icon from './Icon';
 
 const NavWrapper = styled.nav`
@@ -9,16 +9,19 @@ const NavWrapper = styled.nav`
  >ul{
    display: flex;
    >li{
-      width: 33.333%;
+      
       text-align: center;
-      padding:16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      width: 33.333%;
       padding: 4px 0;
-      .icon{
-        width: 32px;
-        height: 32px;
+      >a{
+       padding:16px;
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+        .icon{
+          width: 32px;
+          height: 32px;
+         }  
        }
     }
   }
@@ -28,17 +31,26 @@ const Nav = () => {
     <NavWrapper>
     <ul>
         <li>
-          <Icon name='biaoqian' />
-              <Link to="/tag">标签</Link>
-            </li>
-        <li>
-            <Icon name='jizhangben' />
-              <Link to="/money">记一笔</Link>
-            </li>
-        <li>
-              <Icon name='tongji' />
-              <Link to="/statistics">统计</Link>
-            </li>
+          <NavLink to="/tag" className="selection">
+             <Icon name='biaoqian' />
+            标签
+          </NavLink>
+        </li>
+        
+        <li>  
+          <NavLink to="/money" className="selection">
+             <Icon name='jizhangben' />
+            记一笔
+          </NavLink>
+        </li>
+        
+        <li>     
+          <NavLink to="/statistics" className="selection">
+             <Icon name='tongji' />
+            统计
+          </NavLink>
+        </li>
+        
     </ul>
     </NavWrapper>
  )
