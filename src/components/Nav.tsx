@@ -6,7 +6,7 @@ import Icon from './Icon';
 const NavWrapper = styled.nav`
  box-shadow: 0 0 3px rgba(0,0,0,0.25);
  list-style: 24px;
->ul{
+ >ul{
    display: flex;
    >li{
       width: 33.333%;
@@ -14,14 +14,14 @@ const NavWrapper = styled.nav`
       padding:16px;
       display: flex;
       flex-direction: column;
-    align-items: center;
-    padding: 4px 0;
-    .icon{
-      width: 32px;
-      height: 32px;
+      align-items: center;
+      padding: 4px 0;
+      .icon{
+        width: 32px;
+        height: 32px;
+       }
     }
-      }
-   }
+  }
 `;
 const Nav = () => { 
   return(
@@ -39,7 +39,6 @@ const Nav = () => {
               <Icon name='tongji' />
               <Link to="/statistics">统计</Link>
             </li>
-            
     </ul>
     </NavWrapper>
  )
