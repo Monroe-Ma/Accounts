@@ -23,10 +23,13 @@ const Main = styled.div`
 flex-grow: 1;
 overflow: auto;
 `;
-
+const AppWrapper = styled.div`
+color: #333;
+`;
 function App() {
   return (
-<Router>
+<AppWrapper>
+  <Router>
         <Switch>
           <Route path="/tag">
             <Tags />
@@ -42,9 +45,8 @@ function App() {
             <NoMatch />
           </Route>
         </Switch>
-       
-     
-     </Router>
+  </Router>
+</AppWrapper>
   );
 }
 export default App;
