@@ -1,6 +1,7 @@
-import styled  from 'styled-components';
+import styled from 'styled-components';
+import React ,{useState} from 'react';
 
-const NumberSection = styled.section`
+const Warrper = styled.section`
    >.output{
      text-align: right;
      line-height: 72px;
@@ -11,7 +12,6 @@ const NumberSection = styled.section`
                 inset 0 5px 5px -5px rgba(0,0,0,0.25);
    }
    >.pad{
-  
      >button{
         font-size: 18px;
         float: left;
@@ -55,6 +55,55 @@ const NumberSection = styled.section`
       }
      }
    }
-
 `;
-export default NumberSection
+const NumberSection: React.FC = () => { 
+  const [output, setOutput] = useState("0")
+  const addNumber = (e: React.MouseEvent) => {
+    const text = (e.target as HTMLButtonElement).textContent;
+    console.log(text);
+  // console.log(e.target);
+    if (text === null) { return };
+    switch(text){
+      case "3":
+          // setOutput(text);
+        console.log(text);
+        break;
+      case "删除":
+        console.log("删除");
+        break;
+      case "OK":
+        console.log("OK");
+        break;   
+        case "清空":
+        console.log("清空");
+        break;    
+   }
+  }
+  return (
+  <Warrper>
+    <div className='output'>
+        { output }
+        </div>  
+      <div className='pad clearfix' onClick={addNumber}>
+          <button> 1</button>
+          <button> 2</button>
+          <button> 3</button>
+          <button>删除</button>
+          <button> 4</button>
+          <button> 5</button>
+          <button> 6</button>
+          <button>清空</button>
+          <button> 7</button>
+          <button> 8</button>
+          <button> 9</button>
+           <button className='ok'>OK</button>
+          <button className='zero'> 0</button>
+          <button> .</button>
+        </div>
+</Warrper>
+
+
+)
+}
+
+export default NumberSection 
