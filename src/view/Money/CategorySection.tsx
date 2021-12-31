@@ -1,5 +1,6 @@
 import styled  from 'styled-components';
 import React, { useState } from 'react';
+import { type } from 'os';
 const Wrapper = styled.section`
 >ul{
   display: flex;
@@ -21,9 +22,14 @@ const Wrapper = styled.section`
   }
 }
 `;
-const CategorySection: React.FC = () => { 
+type Props = {
+  value: "-" | "+",
+  onChange:(value:"-" | "+")=>void
+}
+const CategorySection: React.FC<Props> = (props) => { 
   const  categoryMap = { "-": "支出", "+": "收入" };
-  const [category, setCategory] = useState("-");
+  // const [category, setCategory] = useState("-");
+  const category = props.value
   const [categoryList] = useState<("-" | "+")[]>([ "-", "+"]);
   return(
     <Wrapper>
@@ -31,7 +37,7 @@ const CategorySection: React.FC = () => {
         {categoryList.map(c => 
           <li  key={c}
             className={category === c ? "selected" : ""}
-            onClick={() => { setCategory(c) }}
+            onClick={() => { props.onChange(c) }}
           >{categoryMap[c]}</li>
         )}</ul>
     </Wrapper>

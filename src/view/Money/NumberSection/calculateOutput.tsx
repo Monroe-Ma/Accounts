@@ -15,9 +15,11 @@ switch (text) {
         } else { 
           return output+text
         };
-      case ".":
+  case ".":
+    console.log("点");
+    
         if (output.indexOf(".")>=0) { return }
-        else { return output + "."}
+        else { return output + "." }
       case "删除":
         if (output.length === 1) {
           return ""
