@@ -16,17 +16,18 @@ switch (text) {
           return output+text
         };
   case ".":
-    console.log("点");
-    
-        if (output.indexOf(".")>=0) { return }
-        else { return output + "." }
+    if (output.indexOf(".") >= 0) {
+      return
+    }
+    else {
+            // console.log(output+".");
+      return output + ".";
+    }
       case "删除":
         if (output.length === 1) {
           return ""
          }
-        else { return output.slice(0, -1) };
-      case "OK":
-        console.log("OK");
+    else { return output.slice(0, -1) };
         case "清空":
     return "";
   default:

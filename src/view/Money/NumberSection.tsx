@@ -17,7 +17,7 @@ const NumberSection: React.FC<Props> = (props) => {
     } else if (output.length === 0) { 
       value=0
     } else {
-      value=parseFloat(output)
+      value = parseFloat(output)
     }
     props.onChange(value)
   }
@@ -28,7 +28,6 @@ const NumberSection: React.FC<Props> = (props) => {
     if(props.onOk){ props.onOk()}
       return
     };
-    // console.log(text, output);
     if ("0123456789.".split("").concat(["删除","清空"]).indexOf(text)>=0 ){
       setOutput(calculateOutput(text,output) ||"")
     } 
