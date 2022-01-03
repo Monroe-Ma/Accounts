@@ -38,7 +38,7 @@ const Nav = () => {
     <NavWrapper>
     <ul>
         <li>
-          <NavLink to="/tag" activeClassName="selected">
+          <NavLink to="/tags" activeClassName="selected">
              <Icon name='biaoqian' />
             标签
           </NavLink>

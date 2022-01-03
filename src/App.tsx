@@ -7,7 +7,7 @@ import {
   Redirect
 } from "react-router-dom";
 import styled from 'styled-components';
-
+import Tag from 'view/Tag';
 import Money from 'view/Money';
 import NoMatch from 'view/NoMatch';
 import Statistics from 'view/Statistics';
@@ -20,13 +20,16 @@ function App() {
 <AppWrapper>
   <Router>
         <Switch>
-          <Route path="/tag">
+          <Route exact path="/tags">
             <Tags />
           </Route>
-          <Route path="/money">
+            <Route exact path="/tags/:tag">
+            <Tag/>
+          </Route>
+          <Route exact  path="/money">
             <Money />
           </Route>
-          <Route path="/statistics">
+          <Route exact path="/statistics">
             <Statistics />
           </Route>
          <Redirect exact from='/' to='/money' />
