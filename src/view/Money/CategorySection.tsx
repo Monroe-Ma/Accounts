@@ -1,6 +1,5 @@
 import styled  from 'styled-components';
 import React, { useState } from 'react';
-import { type } from 'os';
 const Wrapper = styled.section`
 >ul{
   display: flex;
