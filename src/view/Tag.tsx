@@ -7,7 +7,7 @@ import Button from 'components/Button';
 import styled from 'styled-components';
 import Input from 'components/Input';
 import  Center from 'components/Center';
-import Space from 'components/Space';
+import Space from 'components/Space'
 type Params = {
   id:string
 }
@@ -27,10 +27,10 @@ const InputWrapper = styled.div`
   line-height: 68px;
 `
 const Tag : React.FC<any> = (props) => {
-  const { findTag } = useTags()
-  let { id } = useParams<Params>()
+  const { findTag ,upDateTag} = useTags()
+  let { id:idString } = useParams<Params>()
   
-const tag=findTag(parseInt(id))
+const tag=findTag(parseInt(idString ))
   return (
     <Layout>
       <Topnav>
@@ -39,7 +39,8 @@ const tag=findTag(parseInt(id))
          <Icon/>
       </Topnav>
      <InputWrapper>
-        <Input label='标签名' placeholder={tag.name} />
+        <Input label='标签名' placeholder="标签名" value={tag.name}
+          onChange={(e) => { upDateTag(tag.id, { name: e.target.value }) }} />
       </InputWrapper>
       <Center>
         <Space />
