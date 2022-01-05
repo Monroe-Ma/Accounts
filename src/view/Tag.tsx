@@ -26,18 +26,14 @@ const InputWrapper = styled.div`
   margin-top:8px;
   line-height: 68px;
 `
+
 const Tag : React.FC<any> = (props) => {
-  const { findTag ,upDateTag} = useTags()
+  const { findTag ,upDateTag,deleteTag} = useTags()
   let { id:idString } = useParams<Params>()
   
-const tag=findTag(parseInt(idString ))
-  return (
-    <Layout>
-      <Topnav>
-        <Icon name="arrow-left" />
-        <span>编辑标签</span>
-         <Icon/>
-      </Topnav>
+  const tag = findTag(parseInt(idString))
+  const tagContext =(tag: {id:number,name:string})=> (
+   <div>
      <InputWrapper>
         <Input label='标签名' placeholder="标签名" value={tag.name}
           onChange={(e) => { upDateTag(tag.id, { name: e.target.value }) }} />
@@ -46,12 +42,23 @@ const tag=findTag(parseInt(idString ))
         <Space />
         <Space />
         <Space />
-        
-        <Button>删除标签</Button>
-        </Center>
-    
+        <Button onClick={()=>deleteTag(tag.id)}>删除标签</Button>
+      </Center>
+     </div>
+      );
+      
+  return (
+    <Layout>
+      <Topnav>
+        <Icon name="arrow-left" />
+        <span>编辑标签</span>
+         <Icon/>
+      </Topnav>
+      {tag?
+   tagContext(tag): <div>标签不存在呢</div>}
+     
     </Layout>
     
-  )
+  );
 }
 export default Tag
