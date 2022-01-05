@@ -8,7 +8,7 @@ import Button from 'components/Button';
 import Center from 'components/Center';
 import Space from "components/Space"
 function Tags() {
-  const { tags} = useTags();
+  const { tags,AddTag} = useTags();
   const TagsList = styled.ol`
       background-color: #fff;
     >li{
@@ -42,7 +42,7 @@ return (
       <Space/>
       <Space/>
       <Space/>
-      <Button>新建标签</Button>
+      <Button onClick={AddTag}>新建标签</Button>
     </Center>
     </Layout>
   )

@@ -38,16 +38,11 @@ type Props = {
   onChange: (selected:number[]) => void;
 }
 const TagsSection: React.FC<Props> = (props) => {
-  const {tags, setTags }=useTags()
+  const {tags,AddTag }=useTags()
   // const [Tags, setTags] = useState<string[]>(["衣", "食", "住", "行"])
   // const [selectedTags,setSelectedTags] =useState<string[]>([])
   const selectedTagIds = props.value;
-  const onAddTag = () => { 
-    const tagName = window.prompt("新标签的名称为")
-    if (tagName !== null) { 
-      setTags([...tags, {id:createdId(),name:tagName}])
-    }
-  }
+
   const onToggleTag = (tagId: number) => {
     const index = selectedTagIds.indexOf(tagId);
     if (index >= 0) {
@@ -70,7 +65,7 @@ const TagsSection: React.FC<Props> = (props) => {
           className={getClass(tag.id)}>{tag.name}</li>
         )} 
         </ol>
-        <button onClick={onAddTag}>新增标签</button>
+        <button onClick={AddTag}>新增标签</button>
     </Wrapper>
   );
 }
