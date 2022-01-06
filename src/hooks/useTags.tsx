@@ -6,7 +6,6 @@ const useTags = () => {
   const [tags, setTags] = useState<{ id: number; name: string }[]>([])
 
   useEffect(() => {
-  
     let localStorage = JSON.parse(window.localStorage.getItem("tags") || "[]")
     if (localStorage.length === 0) {
       localStorage = [

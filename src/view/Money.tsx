@@ -5,20 +5,24 @@ import { TagsSection } from './Money/TagsSection';
 import NoteSection from "./Money/NoteSection";
 import CategorySection from "./Money/CategorySection";
 import NumberSection from './Money/NumberSection';
-import { useRecords } from "hooks/useRecords"
+import {useRecords} from "hooks/useRecords"
 
 const MyLayout = styled(Layout)`
 display: flex;
 flex-direction: column;
 `;
 type Category = "-" | "+";
-function Money() {
-  const [selected, setSelected] = useState({
+const defaultFormData = {
     tagIds: [] as number[],
     note: "",
     category: "-" as Category,
     amount: 0
-  });
+  }
+
+function Money() {
+  console.log("money执行了");
+  
+  const [selected, setSelected] = useState(defaultFormData);
 
   const onChange = (obj:Partial<typeof selected>) => {
     setSelected({
@@ -27,10 +31,14 @@ function Money() {
                    })
   }
   const { records, addRecord } = useRecords();
+  console.log("records" );
+  console.log(records);
   const submit = () => {
-     addRecord(selected)
+    addRecord(selected);
+    alert("保存成功了")
+    setSelected(defaultFormData)
+  }
 
-   }
   return (
     <MyLayout>
       {JSON.stringify(selected)}
