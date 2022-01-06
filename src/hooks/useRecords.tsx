@@ -13,6 +13,14 @@ export type NewRecordsItem = Omit<RecordsItem,"createdAt">
   export  const useRecords = () => { 
     const [records,setRecords]= useState<RecordsItem[]>([])
     const addRecord = (newrecord: NewRecordsItem) => {
+      if (newrecord.amount <= 0) {
+        alert("请输入金额")
+        return false
+      }
+         if (newrecord.tagIds.length=== 0) {
+        alert("请选择标签")
+        return false
+       }
       const record = {...newrecord,createdAt:(new Date()).toISOString()}
       setRecords([...records, record]);
     };
