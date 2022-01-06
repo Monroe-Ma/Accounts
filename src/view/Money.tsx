@@ -5,7 +5,7 @@ import { TagsSection } from './Money/TagsSection';
 import NoteSection from "./Money/NoteSection";
 import CategorySection from "./Money/CategorySection";
 import NumberSection from './Money/NumberSection';
-
+import { useRecords } from "hooks/useRecords"
 
 const MyLayout = styled(Layout)`
 display: flex;
@@ -26,9 +26,15 @@ function Money() {
                      ...obj
                    })
   }
+  const { records, addRecord } = useRecords();
+  const submit = () => {
+     addRecord(selected)
+
+   }
   return (
     <MyLayout>
-      { NoteSection}
+      {JSON.stringify(selected)}
+      <hr/>
       <TagsSection value={selected.tagIds}
         onChange={(tagIds) => onChange({ tagIds })}>
      </TagsSection>
@@ -40,8 +46,8 @@ function Money() {
       >
      </CategorySection>  
       <NumberSection value={selected.amount}
-        onChange={(amount) => onChange({ amount})}
-        onOk={()=>{ }}>
+        onChange={(amount) => onChange({ amount })}
+        onOk={ submit }>
       </NumberSection>
     </MyLayout>
 )}
