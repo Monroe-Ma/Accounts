@@ -3,11 +3,12 @@ import React, { useState } from 'react';
 const Wrapper = styled.section`
 >ul{
   display: flex;
+
   >li{
     width: 50%;
     text-align: center;
-    background: #c4c4c4;
-    padding: 10px 0;
+    padding: 20px 0;
+    
     position: relative;
     &.selected::after{
       content: "";
@@ -27,7 +28,6 @@ type Props = {
 }
 const CategorySection: React.FC<Props> = (props) => { 
   const  categoryMap = { "-": "支出", "+": "收入" };
-  // const [category, setCategory] = useState("-");
   const category = props.value
   const [categoryList] = useState<("-" | "+")[]>([ "-", "+"]);
   return(

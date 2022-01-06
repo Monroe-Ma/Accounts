@@ -6,6 +6,9 @@ import NoteSection from "./Money/NoteSection";
 import CategorySection from "./Money/CategorySection";
 import NumberSection from './Money/NumberSection';
 import {useRecords} from "hooks/useRecords"
+const CategorySectionWrapper = styled.div`
+background: #c4c4c4;
+`;
 
 const MyLayout = styled(Layout)`
 display: flex;
@@ -23,15 +26,14 @@ function Money() {
   const [selected, setSelected] = useState(defaultFormData);
   const onChange = (obj:Partial<typeof selected>) => {
     setSelected({
-                     ...selected,
-                     ...obj
-                   })
+      ...selected,
+      ...obj
+    })
   }
   const { records, addRecord } = useRecords();
   const submit = () => {
     if(addRecord(selected)){
-    
-    alert("保存成功了")
+      alert("保存成功了")
       setSelected(defaultFormData)
       }
   }
@@ -43,13 +45,17 @@ function Money() {
       <NoteSection value={selected.note}
         onChange={(note) => onChange({ note })}>
       </NoteSection> 
+      <CategorySectionWrapper>
       <CategorySection value={selected.category}
         onChange={(category) => onChange({ category })}
       >
-     </CategorySection>  
-      <NumberSection value={selected.amount}
+        </CategorySection>  
+      </CategorySectionWrapper>
+      <NumberSection
+        value={selected.amount}
         onChange={(amount) => onChange({ amount })}
-        onOk={ submit }>
+        onOk={submit}
+      >
       </NumberSection>
     </MyLayout>
 )}
