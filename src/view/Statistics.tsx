@@ -56,22 +56,20 @@ function Statistics() {
     if (a[0] < b[0]) return 1;
     return 0;
   })
-  console.log(array);
-  
   return (
     <Layout>
       <CategorySectionWrapper>
         <CategorySection value={category} onChange={value => setCategory(value)} />
       </CategorySectionWrapper>
-      {array.map(([date,records]) => 
-        <div>
+      {array.map(([date,records],i) => 
+        <div key={i}>
           <Header>
             {date}
             </Header>
-          {records.map(r => { 
-          return <Item >
+          {records.map((r,index) => { 
+            return <Item key={index } >
             <ul >
-             <li> {r.tagIds.map(tagId => { return <span >{getTagName(tagId)}</span> })}</li>
+             <li> {r.tagIds.map(tagId => { return <span key={tagId} >{getTagName(tagId)}</span> })}</li>
               <li>
                 <span className='textContent'> {day(r.createdAt).format("HH:mm:ss")}</span>
                 <span className='textContent'>{r.note} </span>
