@@ -1,14 +1,12 @@
-import React, { ReactFragment } from 'react';
+import React, { useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import Nav from 'components/Nav';
-import { useRef } from 'react';
-import { useEffect } from 'react';
+import Nav from './Nav';
+
 const Wrapper = styled.div`
-   min-height: 100vh;
+   height: 100vh;
    display: flex;
    flex-direction: column;
    font-family: -apple-system, "Helvetica Neue", "PingFang SC", sans-serif;
-
 `;
 const Main = styled.div`
 flex-grow: 1;
